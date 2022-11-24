@@ -7,7 +7,7 @@ class GildedRose(var items: List<Item>) {
             if (item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert") {
                 if (item.quality > 0) {
                     if (item.name != "Sulfuras, Hand of Ragnaros") {
-                        item.quality = item.quality - 1
+                        decreaseQuality(item)
                     }
                 }
             } else {
@@ -39,7 +39,7 @@ class GildedRose(var items: List<Item>) {
                     if (item.name != "Backstage passes to a TAFKAL80ETC concert") {
                         if (item.quality > 0) {
                             if (item.name != "Sulfuras, Hand of Ragnaros") {
-                                item.quality = item.quality - 1
+                                decreaseQuality(item)
                             }
                         }
                     } else {
@@ -52,6 +52,10 @@ class GildedRose(var items: List<Item>) {
                 }
             }
         }
+    }
+
+    private fun decreaseQuality(item: Item) {
+        item.quality = item.quality - 1
     }
 
 }

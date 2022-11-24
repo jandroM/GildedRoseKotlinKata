@@ -9,6 +9,7 @@ import java.util.stream.Stream
 const val AGED_BRIE = "Aged Brie"
 const val SULFURAS = "Sulfuras, Hand of Ragnaros"
 const val ELIXIR_OF_THE_MONGOOSE = "Elixir of the Mongoose"
+const val BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert"
 
 internal class GildedRoseTest {
 
@@ -26,6 +27,11 @@ internal class GildedRoseTest {
             Arguments.of("The Quality of an item is never negative", Item(ELIXIR_OF_THE_MONGOOSE, 3, 0), 2, 0),
             Arguments.of("The Quality of an item is never more than 50", Item(AGED_BRIE, 3, 50), 2, 50),
             Arguments.of("Sulfuras legendary item it's unalterable", Item(SULFURAS, 3, 50), 3, 50),
+            Arguments.of("Backstage passes increases in Quality as its SellIn value approaches. Case A", Item(BACKSTAGE_PASSES, 3, 48), 2, 50),
+            Arguments.of("Backstage passes increases in Quality as its SellIn value approaches. Case B", Item(BACKSTAGE_PASSES, 8, 46), 7, 48),
+            Arguments.of("Backstage passes increases in Quality as its SellIn value approaches. Case C", Item(BACKSTAGE_PASSES, 2, 10), 1, 13),
+            Arguments.of("Backstage passes increases in Quality as its SellIn value approaches. Case D", Item(BACKSTAGE_PASSES, 0, 50), -1, 0),
+            Arguments.of("Backstage passes increases in Quality as its SellIn value approaches. Case D", Item(BACKSTAGE_PASSES, 1, 50), 0, 50),
         )
     }
 

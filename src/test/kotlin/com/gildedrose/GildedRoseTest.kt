@@ -17,6 +17,8 @@ internal class GildedRoseTest {
             Arguments.of(Item(AGED_BRIE, 2, 0), 1, 1),
             Arguments.of(Item(ELIXIR_OF_THE_MONGOOSE, 5, 7), 4, 6),
             Arguments.of(Item(ELIXIR_OF_THE_MONGOOSE, 0, 7), -1, 5),
+            Arguments.of(Item(ELIXIR_OF_THE_MONGOOSE, 3, 0), 2, 0),
+            Arguments.of(Item(AGED_BRIE, 3, 50), 2, 50)
         )
     }
 

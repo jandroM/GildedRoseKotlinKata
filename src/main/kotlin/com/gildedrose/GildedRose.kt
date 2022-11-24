@@ -40,14 +40,14 @@ class GildedRose(var items: List<Item>) {
 
             if (item.sellIn < 0) {
                 if (item.name != AGED_BRIE) {
-                    if (item.name != BACKSTAGE_PASSES) {
+                    if (item.name == BACKSTAGE_PASSES) {
+                        item.quality = 0
+                    } else {
                         if (item.quality > 0) {
                             if (item.name != LEGENDARY_ITEM) {
                                 decreaseQuality(item)
                             }
                         }
-                    } else {
-                        item.quality = item.quality - item.quality
                     }
                 } else {
                     if (item.quality < 50) {

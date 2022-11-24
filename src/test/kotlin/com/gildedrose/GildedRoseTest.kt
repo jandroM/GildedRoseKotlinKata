@@ -3,17 +3,18 @@ package com.gildedrose
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
+const val AGED_BRIE = "Aged Brie"
+
 internal class GildedRoseTest {
 
     @Test
-    fun foo() {
-        val items = listOf(Item("foo", 0, 0))
+    fun `aged brie should increase in quality`() {
+        val items = listOf(Item(AGED_BRIE, 2, 0))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals("foo", app.items[0].name)
-
+        assertEquals(1, items[0].quality)
+        assertEquals(1, items[0].sellIn)
     }
-
 }
 
 

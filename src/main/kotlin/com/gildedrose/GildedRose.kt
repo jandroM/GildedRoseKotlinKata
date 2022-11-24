@@ -10,7 +10,7 @@ class GildedRose(var items: List<Item>) {
         for (item in items) {
             if (item.name != AGED_BRIE && item.name != BACKSTAGE_PASSES) {
                 if (item.quality > 0) {
-                    if (item.name != LEGENDARY_ITEM) {
+                    if (checkIfNotLegendary(item)) {
                         decreaseQuality(item)
                     }
                 }
@@ -34,7 +34,7 @@ class GildedRose(var items: List<Item>) {
                 }
             }
 
-            if (item.name != LEGENDARY_ITEM) {
+            if (checkIfNotLegendary(item)) {
                 item.sellIn = item.sellIn - 1
             }
 
@@ -44,7 +44,7 @@ class GildedRose(var items: List<Item>) {
                         item.quality = 0
                     } else {
                         if (item.quality > 0) {
-                            if (item.name != LEGENDARY_ITEM) {
+                            if (checkIfNotLegendary(item)) {
                                 decreaseQuality(item)
                             }
                         }
@@ -57,6 +57,8 @@ class GildedRose(var items: List<Item>) {
             }
         }
     }
+
+    private fun checkIfNotLegendary(item: Item) = item.name != LEGENDARY_ITEM
 
     private fun increaseQuality(item: Item) {
         item.quality = item.quality + 1
